@@ -43,8 +43,10 @@ void SimulationOrchestrator::initializeSimulationStates() {
   Asteroid a1;
 
   current_state_->earth = Earth();
+  current_state_->earth.setRadius(1);
   current_state_->asteroids.push_back(a1);
 
   next_state_->earth = Earth();
+  next_state_->earth.setRadius(1);
   next_state_->asteroids.push_back(a1);
 }

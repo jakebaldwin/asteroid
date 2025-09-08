@@ -31,6 +31,8 @@ private:
   unsigned int compileShader(const std::string &source, unsigned int type);
   unsigned int createShaderProgram(const std::string &vertex_src,
                                    const std::string &fragment_src);
+  unsigned int vs_;
+  unsigned int fs_;
   unsigned int shader_program_id_;
 
   OpenGlManager &open_gl_;
