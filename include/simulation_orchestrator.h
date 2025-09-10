@@ -7,6 +7,9 @@
 #include "simulation_state.h"
 #include "simulator.h"
 #include "thread_manager.h"
+#include <glm/gtc/type_ptr.hpp>
+
+constexpr float kEarthAxisTiltRads = 0.408;
 
 class SimulationOrchestrator {
 
@@ -23,7 +26,6 @@ private:
   std::unique_ptr<OpenGlManager> open_gl_;
   std::unique_ptr<Simulator> simulator_;
   std::unique_ptr<Renderer> renderer_;
-  std::unique_ptr<Logger> logger_;
 
   std::unique_ptr<SimulationState> current_state_;
   std::unique_ptr<SimulationState> next_state_;

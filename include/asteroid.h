@@ -5,7 +5,7 @@
 #include <cstdlib>
 #include <glm/glm.hpp>
 #include <glm/gtc/quaternion.hpp>
-#include <vector>
+
 class Asteroid {
 public:
   Asteroid() = default;

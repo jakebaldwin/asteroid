@@ -5,7 +5,7 @@
 #include "simulation_state.h"
 #include <string>
 
-constexpr std::string_view ShaderPath = "res/shaders/shader.shader";
+constexpr const char *ShaderPath = "res/shaders/shader.shader";
 
 struct ShaderProgramSource {
   std::string vertex_source;
@@ -23,6 +23,8 @@ public:
 
   void initializeShaders();
 
+  void initializeEarthGeometry(const Earth &earth);
+
 private:
   ShaderProgramSource parseShaderFile();
   void drawAsteroid(const Asteroid &asteroid);
@@ -36,5 +38,11 @@ private:
   unsigned int shader_program_id_;
 
   OpenGlManager &open_gl_;
+
+  /* cache earth geometry */
+  std::vector<GeometryUtils::Vertex> earth_vertices_;
+  std::vector<uint32_t> earth_indices_;
+  GLuint earth_vao_, earth_vbo_, earth_ebo_;
+  bool earth_geometry_initialized_ = false;
 };
 #endif
